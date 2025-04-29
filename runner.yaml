@@ -1,0 +1,19 @@
+runner:
+  name: Jailbreak LLM Best-of-N
+  description: Jailbreak LLM with Best-of-N
+  version: 0.0.1
+
+build:
+  memorysize: 1280
+  commands: |
+    echo "START: Building the runner"
+    python3 -m pip install -U -r requirements.txt
+    echo "END: Building the runner"
+
+webform:
+  - name: textfilename
+    prompt: Text File to Convert
+    type: file
+
+launch:
+  command: app.py --filename ${textfilename}
